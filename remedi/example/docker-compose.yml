@@ -1,0 +1,79 @@
+version: "3.4"
+
+services:
+  translator-de-1:
+    networks: 
+    -  internal
+    build:
+      context: .
+      dockerfile: Server
+      args:
+        port: 9001
+    image: remedi-server:de
+    volumes:
+    - ${PWD}/conf/server-de.cfg:/opt/conf/server.cfg
+    - ${PWD}/models/de:/opt/models
+    expose:
+    - 9001
+  translator-de-2:
+    networks: 
+    -  internal
+    build:
+      context: .
+      dockerfile: Server
+      args:
+        port: 9001
+    image: remedi-server:de
+    volumes:
+    - ${PWD}/conf/server-de.cfg:/opt/conf/server.cfg
+    - ${PWD}/models/de:/opt/models
+    expose:
+    - 9001
+
+  translator-fr:
+    networks: 
+    -  internal
+    build:
+      context: .
+      dockerfile: Server
+      args:
+        port: 9001
+    image: remedi-server:fr
+    volumes:
+    - ${PWD}/conf/server-fr.cfg:/opt/conf/server.cfg
+    - ${PWD}/models/fr:/opt/models
+    expose:
+    - 9001
+
+  processor:
+    networks: 
+    -  internal
+    build:
+      context: .
+      dockerfile: Processor
+      args:
+        port: 9080
+    image: remedi-processor
+    volumes:
+    - ${PWD}/conf/processor.cfg:/opt/conf/processor.cfg
+    - ${PWD}/tools:/opt/tools
+    ports:
+    - "9080:9080"
+
+  balancer:
+    networks: 
+    -  internal
+    build:
+      context: .
+      dockerfile: Balancer
+      args:
+        port: 9090
+    image: remedi-balancer
+    volumes:
+    - ${PWD}/conf/balancer.cfg:/opt/conf/balancer.cfg
+    ports:
+    - "9090:9090"
+
+
+networks:
+  internal:

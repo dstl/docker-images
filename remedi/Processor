@@ -1,0 +1,6 @@
+FROM remedi:latest
+ARG port=9003
+
+VOLUME ["/opt/tools", "/opt/conf"]
+ENTRYPOINT /opt/bin/bpbd-processor -c /opt/conf/processor.cfg > /dev/null
+EXPOSE ${port}

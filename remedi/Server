@@ -1,0 +1,6 @@
+FROM remedi:latest
+ARG port=9001
+
+VOLUME ["/opt/models", "/opt/conf"]
+ENTRYPOINT /opt/bin/bpbd-server -c /opt/conf/server.cfg > /dev/null
+EXPOSE ${port}

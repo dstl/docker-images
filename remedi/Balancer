@@ -1,0 +1,6 @@
+FROM remedi:latest
+ARG port=9005
+
+VOLUME ["/opt/conf"]
+ENTRYPOINT /opt/bin/bpbd-balancer -c /opt/conf/balancer.cfg > /dev/null
+EXPOSE ${port}
