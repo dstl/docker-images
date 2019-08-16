@@ -12,7 +12,7 @@ You can build the image using the following command.
 To run the image you'll need to train or download a pre-trained moses model.
 
 Training falls outside of the scope of this document, pre-trained models can
-be found on the [Moses website](http://www.statmt.org/moses/RELEASE-4.0/models/de-en/model/)
+be found on the [Moses website](http://www.statmt.org/moses/RELEASE-4.0/models/)
 
 The core of the model is the 'moses.ini' file. This contains all the parameters
 and file paths for the model. The statmt pretrained models have multiple ini files
