@@ -37,13 +37,13 @@ If changing the port within the configuration, be sure to rebuild the images wit
 
 A volume is created in the Translation Server image, `/opt/models/` for you to place your models. You should include this volume in your Docker run command. The exact model names will be specified in your `server.cfg`. For example:
 
-    docker run -d -v models/:/opt/models/ -v conf/server.cfg:/opt/conf/server.cfg -p 9001:9001 remedi-server:latest
+    docker run -d -v /full/path/to/models/:/opt/models/ -v /full/path/to/conf/server.cfg:/opt/conf/server.cfg -p 9001:9001 remedi-server:latest
 
 ### Tools
 
 A volume is created on the Processor Server image, `/opt/tools/` for you to optionally place processing tools and scripts in. You can include this volume in your Docker run command. The exact model names will be specified in your `processor.cfg`. For example:
 
-    docker run -d -v tools/:/opt/tools/ -v conf/processor.cfg:/opt/conf/processor.cfg -p 9003:9003 remedi-processor:latest
+    docker run -d -v /full/path/to/tools/:/opt/tools/ -v /full/path/to/conf/processor.cfg:/opt/conf/processor.cfg -p 9003:9003 remedi-processor:latest
 
 ## Running the REMEDI Cluster
 

@@ -21,9 +21,9 @@ To use these, download the language pack and extract it. There will be a folder 
 
 Once you have these files, you can run the Joshua Docker image as follows:
 
-    docker run -d -v my-model/:/opt/bin/joshua/model/ -v joshua.config:/opt/bin/joshua/joshua.config -p 5674:5674 joshua:latest
+    docker run -d -v /full/path/to/my-model/:/opt/bin/joshua/model/ -v /full/path/to/joshua.config:/opt/bin/joshua/joshua.config -p 5674:5674 joshua:latest
 
-Note that the local model (`my-model` in the example above) must be mounted to `/opt/bin/joshua/model/`, and the config must be mounted as `/opt/bin/joshua/joshua.config`.
+Note that the local model (`/full/path/to/my-model` in the example above) must be mounted to `/opt/bin/joshua/model/`, and the config must be mounted as `/opt/bin/joshua/joshua.config`.
 
 ### Example
 
